@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>My Calculator</title>
+  </head>
+  <style>
+    body {
+       background-color: #f2f2f2;
+       font-family: Arial, sans-serif;
+       padding: 20px;
+   }
+   
+   .container {
+       width: 500px;
+       margin: 0 auto;
+       background-color: white;
+       padding: 40px;
+       box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+       border-radius: 10px;
+   }
+   
+   h1 {
+       font-size: 36px;
+       color: #333;
+       text-align: center;
+       margin-bottom: 40px;
+   }
+   
+   form {
+       text-align: center;
+       margin-bottom: 40px;
+   }
+   
+   input[type="text"], input[type="number"] {
+       padding: 20px;
+       font-size: 18px;
+       width: 300px;
+       margin-right: 20px;
+       border: 1px solid #ddd;
+       border-radius: 5px;
+       outline: none;
+       box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+   }
+   
+   input[type="submit"] {
+       padding: 20px 40px;
+       font-size: 18px;
+       background-color: #3F51B5;
+       color: white;
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+       box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+       transition: all 0.3s;
+   }
+   
+   input[type="submit"]:hover {
+       background-color: #303F9F;
+       box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+   }
+   
+   .result {
+       font-size: 24px;
+       color: #333;
+       margin-top: 20px;
+       text-align: center;
+   }
+    span {
+       font-weight: 800;
+    }
+
+   table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    }
+
+    th,
+    td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid lightgrey;
+    }
+
+    th {
+    background-color: lightgrey;
+    font-weight: bold;
+    }
+
+    td {
+    background-color: white;
+    }
+
+   </style>
+  <body>
+    <h1>Tax Calculator</h1>
+    <form action = '/calculate' method="post">
+        <span> Enter your Income </span> (inclusive additional Income) : <input type = 'text' name = 'income'>
+        <span> Enter your Deduction </span>: <input type = 'text' name = 'deduction'>
+        <input type="submit" value="Calculate">
+
+    </form>
+    {%if ot%}
+    <table>
+        <tr>
+            <th>Old Tax Regime</th>
+            <th>New Tax Regime</th>
+            <th>Tax Regime to Choose</th>
+            <th>Benefit</th>
+        </tr>
+        <tr>
+            <td>{{ ot }}</td>
+            <td>{{ nt }}</td>
+            <td>{{ regime }}</td>
+            <td>{{ benefit }}</td>
+        </tr>
+    </table>
+    {%endif%}
+  </body>
+</html>
